@@ -65,3 +65,10 @@ body {
   background-color: #3553DC;
   color: #ffff;
 }
+
+.header {
+    background-color: none;
+    color: white;
+    position: absolute;
+    margin: 0;
+}
