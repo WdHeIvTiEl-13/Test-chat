@@ -70,5 +70,6 @@ body {
     background-color: none;
     color: white;
     position: absolute;
-    margin: 0;
+    margin: 10px;
+    font-size: 12px;
 }
