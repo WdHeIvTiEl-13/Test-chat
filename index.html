@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>tChat</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="main.js" type="module"></script>
+</head>
+
+<body>
+  <div id="messages"></div>
+  <div id="sendMsg">
+    <input type="text" name="" id="msgTxt" placeholder="Type message...">
+    <input type="submit" id="msgBtn" value="send" onclick="module.sendMsg()">
+  </div>
+  <script>
+    module = {};
+  </script>
+</body>
+</html>
