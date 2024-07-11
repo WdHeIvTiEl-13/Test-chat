@@ -26,6 +26,7 @@ if (sessionStorage.getItem('sender')) {
 //To send messages
 module.sendMsg = function sendMsg() {
   var msg = msgTxt.value;
+  msgTxt.value = "";
   var timestamp = new Date().getTime();
   set(ref(db, "messages/" + timestamp), {
     msg: msg,
@@ -36,8 +37,8 @@ module.sendMsg = function sendMsg() {
 //To recive messages
 onChildAdded(ref(db, "messages"), (data) => {
   if (data.val().sender == sender) {
-    messages.innerHTML += "<div style=justify-content:end class=outer id="+data.key+"><div id=inner class=me >You : <br>"+data.val().msg+"</div></div>";
+    messages.innerHTML += "<div style=justify-content:end class=header>You</div><br><div style=justify-content:end class=outer id="+data.key+"><div id=inner class=me >"+data.val().msg+"</div></div>";
   } else {
-    messages.innerHTML += "<div class=outer id="+data.key+"><div id=inner class=notMe >"+data.val().sender+" : <br>"+data.val().msg+"</div></div>";
+    messages.innerHTML += "div class=header>"+data.val().sender+"</div><br><div class=outer id="+data.key+"><div id=inner class=notMe >"+data.val().msg+"</div></div>";
   }
 })
