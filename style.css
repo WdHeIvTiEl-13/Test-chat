@@ -45,13 +45,14 @@ body {
 }
 
 .outer{
-  margin-top: 10px;
+  margin-top: 2px;
   width: 100%;
   display: flex;
 }
 
 #inner{
   padding: 10px;
+  font-size: 18px;
   box-sizing: border-box;
   border-radius: 6px;
 }
@@ -63,5 +64,14 @@ body {
 
 .notMe {
   background-color: #3553DC;
+  color: #ffff;
+}
+
+.header {
+  height:16px;
+  display: flex;
+  margin-top: 10px;
+  font-size: 12px;
+  background-color: none;
   color: #ffff;
 }
