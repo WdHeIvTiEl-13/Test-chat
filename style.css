@@ -59,6 +59,7 @@ body {
   height: max-content;
   font-size: 18px;
   padding: 10px;
+  margin: 0px;
 }
 
 .notMe {
@@ -70,12 +71,13 @@ body {
   height: max-content;
   font-size: 18px;
   padding: 10px;
+  margin: 0px;
 }
 
 .header {
-  height:16px;
   display: flex;
   margin-top: 10px;
+  margin-bottom: 2px;
   font-size: 12px;
   background-color: none;
   color: #ffff;
