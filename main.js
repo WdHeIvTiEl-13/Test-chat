@@ -38,8 +38,8 @@ module.sendMsg = function sendMsg() {
 //To recive messages
 onChildAdded(ref(db, "messages"), (data) => {
   if (data.val().sender == sender) {
-    messages.innerHTML += "<div style=justify-content:end class=header>You</div><br><div style=justify-content:end class=outer id="+data.key+"><p id=inner class=me >"+data.val().msg+"</p></div>";
+    messages.innerHTML += "<div style=justify-content:end class=header>You</div><div style=justify-content:end class=outer id="+data.key+"><p id=inner class=me >"+data.val().msg+"</p></div>";
   } else {
-    messages.innerHTML += "<div class=header>"+data.val().sender+"</div><br><div class=outer id="+data.key+"><p id=inner class=notMe >"+data.val().msg+"</p></div>";
+    messages.innerHTML += "<div class=header>"+data.val().sender+"</div><div class=outer id="+data.key+"><p id=inner class=notMe >"+data.val().msg+"</p></div>";
   }
 })
