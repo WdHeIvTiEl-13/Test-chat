@@ -16,14 +16,14 @@ var user = document.getElementById('user');
 const submit = document.getElementById('submit');
 const main1 = document.querySelector('.main1');
 const messages = document.querySelector('.messages');
-const msgInp = document.querySelector('.msgInp');
+const sendMsg = document.querySelector('.sendMsg');
 
 
 function onSubmit() {
   if (user.value != "") {
     main1.style.display = 'none';
     messages.style.display = "block";
-    msgInp.style.display ="block";
+    sendMsg.style.display ="block";
 
   } else{
     alert('You need to enter your name first.');
