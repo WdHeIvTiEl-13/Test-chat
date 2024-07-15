@@ -20,7 +20,7 @@ var sender;
 if (sessionStorage.getItem('sender')) {
   sender = sessionStorage.getItem('sender');
 } else {
-  sender = prompt("Enter your name:";
+  sender = prompt("Enter your name:");
   sessionStorage.setItem('sender', sender);
 }
 
