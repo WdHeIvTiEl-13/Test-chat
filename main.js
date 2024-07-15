@@ -37,7 +37,7 @@ var sender;
 if (sessionStorage.getItem('sender')) {
   sender = sessionStorage.getItem('sender');
 } else {
-  sender = document.getElementById('user').value;;
+  sender = document.getElementById('user').value;
   sessionStorage.setItem('sender', sender);
 }
 
