@@ -12,24 +12,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-var user = document.getElementById('user').value;
-const submit = document.getElementById('submit');
-const main1 = document.querySelector('.main1');
-const messages1 = document.getElementById('messages');
-const sendMsg = document.getElementById('sendMsg');
 
-
-function onSubmit() {
-  if (user != "") {
-    main1.style.display = 'none';
-    messages1.style.display = "block";
-    sendMsg.style.display ="block";
-
-  } else{
-    alert('You need to enter your name first.');
-  }
-}
-submit.addEventListener('click', onSubmit);
 //variabls
 var msgTxt = document.getElementById('msgTxt');
 var sender;
