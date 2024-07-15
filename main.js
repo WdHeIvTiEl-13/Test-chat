@@ -37,7 +37,7 @@ var sender;
 if (sessionStorage.getItem('sender')) {
   sender = sessionStorage.getItem('sender');
 } else {
-  sender = " ovi";
+  sender = prompt("Enter your name:";
   sessionStorage.setItem('sender', sender);
 }
 
