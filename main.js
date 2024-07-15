@@ -33,10 +33,11 @@ submit.addEventListener('click', onSubmit);
 //variabls
 var msgTxt = document.getElementById('msgTxt');
 var sender;
+
 if (sessionStorage.getItem('sender')) {
   sender = sessionStorage.getItem('sender');
 } else {
-  sender = user;
+  sender = document.getElementById('user').value;;
   sessionStorage.setItem('sender', sender);
 }
 
