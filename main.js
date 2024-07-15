@@ -15,14 +15,14 @@ const db = getDatabase(app);
 var user = document.getElementById('user');
 const submit = document.getElementById('submit');
 const main1 = document.querySelector('.main1');
-const messages = document.querySelector('.messages');
-const sendMsg = document.querySelector('.sendMsg');
+const messages1 = document.getElementById('messages');
+const sendMsg = document.getElementById('sendMsg');
 
 
 function onSubmit() {
   if (user.value != "") {
     main1.style.display = 'none';
-    messages.style.display = "block";
+    messages1.style.display = "block";
     sendMsg.style.display ="block";
 
   } else{
@@ -54,8 +54,8 @@ module.sendMsg = function sendMsg() {
 //To recive messages
 onChildAdded(ref(db, "messages"), (data) => {
   if (data.val().sender == sender) {
-    messages.innerHTML += "<div style=justify-content:end class=header>You</div><br><div style=justify-content:end class=outer id="+data.key+"><div id=inner class=me >"+data.val().msg+"</div></div>";
+    messages.innerHTML += "<div style=justify-content:end class=header>You</div><br><div style=justify-content:end class=outer id="+data.key+"><p id=inner class=me >"+data.val().msg+"</p></div>";
   } else {
-    messages.innerHTML += "<div class=header>"+data.val().sender+"</div><br><div class=outer id="+data.key+"><div id=inner class=notMe >"+data.val().msg+"</div></div>";
+    messages.innerHTML += "<div class=header>"+data.val().sender+"</div><br><div class=outer id="+data.key+"><p id=inner class=notMe >"+data.val().msg+"</p></div>";
   }
 })
