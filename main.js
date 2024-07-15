@@ -12,14 +12,31 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+var user = document.getElementById('user');
+const submit = document.getElementById('submit');
+const main1 = document.querySelector('.main1');
+const messages = document.querySelector('.messages');
+const msgInp = document.querySelector('.msgInp');
 
+
+function onSubmit() {
+  if (user.value != "") {
+    main1.style.display = 'none';
+    messages.style.display = "block";
+    msgInp.style.display ="block";
+
+  } else{
+    alert('You need to enter your name first.');
+  }
+}
+submit.addEventListener('click', onSubmit);
 //variabls
 var msgTxt = document.getElementById('msgTxt');
 var sender;
 if (sessionStorage.getItem('sender')) {
   sender = sessionStorage.getItem('sender');
 } else {
-  sender = prompt('Please enter your name..');
+  sender = user.value;
   sessionStorage.setItem('sender', sender);
 }
 
