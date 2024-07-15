@@ -15,7 +15,7 @@ body {
   overflow-y: auto;
   padding: 10px;
   box-sizing: border-box;
-  display: none;
+  display: block;
 }
 
 #sendMsg{
@@ -25,7 +25,7 @@ body {
   width: 100%;
   height: 50px;
   background-color: #AAAA;
-  display: none;
+  display: block;
 }
 
 #msgTxt{
@@ -92,7 +92,7 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
-  display: flex;
+  display: none;
 }
 
 .SignIn{
