@@ -33,7 +33,7 @@ function onSubmit() {
     main.style.display = 'none';
     m.style.display = 'block';
     sendMsg.style.display = 'block';
-    m.scrollTo(0, document.body.scrollHeight);
+    
 
     
     
@@ -62,14 +62,14 @@ function onSubmit() {
         if (data.val().msg != "") {
           messages.innerHTML += "<div style=justify-content:end class=header>You</div><div style=justify-content:end class=outer id=" + data.key + "><p id=inner class=me >" + data.val().msg + "</p></div>";
           new Audio('notify.m4a').play();
-          m.scrollTo(0, document.body.scrollHeight);
+          
         } else {
           console.log('null');
         }
       } else {
         messages.innerHTML += "<div class=header>" + data.val().sender + "</div><div class=outer id=" + data.key + "><p id=inner class=notMe >" + data.val().msg + "</p></div>";
         new Audio('notify.m4a').play();
-        m.scrollTo(0, document.body.scrollHeight);
+        
       }
     })
     
