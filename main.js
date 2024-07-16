@@ -13,33 +13,70 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-//variabls
+// log in
+var user = document.getElementById('user');
+var entry = document.getElementById('Entry');
+const submit = document.getElementById('submit');
+const main = document.querySelector('.main');
+const enter = document.querySelector('.SignIn');
+const m = document.getElementById('messages');
+const sendMsg = document.getElementById('sendMsg');
+
+
 var msgTxt = document.getElementById('msgTxt');
 var sender;
 
-if (sessionStorage.getItem('sender')) {
-  sender = sessionStorage.getItem('sender');
-} else {
-  sender = prompt("Enter your name:");
-  sessionStorage.setItem('sender', sender);
-}
+function onSubmit() {
+  if (entry.value == 1437) {
+    
+  if (user.value != "") {
+    main.style.display = 'none';
+    m.style.display = 'block';
+    sendMsg.style.display = 'block';
 
-//To send messages
-module.sendMsg = function sendMsg() {
-  var msg = msgTxt.value;
-  msgTxt.value = "";
-  var timestamp = new Date().getTime();
-  set(ref(db, "messages/" + timestamp), {
-    msg: msg,
-    sender: sender
-  })
-}
-
-//To recive messages
-onChildAdded(ref(db, "messages"), (data) => {
-  if (data.val().sender == sender) {
-    messages.innerHTML += "<div style=justify-content:end class=header>You</div><div style=justify-content:end class=outer id="+data.key+"><p id=inner class=me >"+data.val().msg+"</p></div>";
+    
+    
+    
+  if (sessionStorage.getItem('sender')) {
+    sender = sessionStorage.getItem('sender');
   } else {
-    messages.innerHTML += "<div class=header>"+data.val().sender+"</div><div class=outer id="+data.key+"><p id=inner class=notMe >"+data.val().msg+"</p></div>";
+    sender = user.value;
+    sessionStorage.setItem('sender', sender);
+    }
+    
+    //To send messages
+    module.sendMsg = function sendMsg() {
+      var msg = msgTxt.value;
+      msgTxt.value = "";
+      var timestamp = new Date().getTime();
+      set(ref(db, "messages/" + timestamp), {
+        msg: msg,
+        sender: sender
+      })
+    }
+    
+    //To recive messages
+    onChildAdded(ref(db, "messages"), (data) => {
+      if (data.val().sender == sender) {
+        if (data.val().msg != "") {
+          messages.innerHTML += "<div style=justify-content:end class=header>You</div><div style=justify-content:end class=outer id=" + data.key + "><p id=inner class=me >" + data.val().msg + "</p></div>";
+        } else {
+          console.log('null');
+        }
+      } else {
+        messages.innerHTML += "<div class=header>" + data.val().sender + "</div><div class=outer id=" + data.key + "><p id=inner class=notMe >" + data.val().msg + "</p></div>";
+      }
+    })
+    
+    
+    
+  } else {
+    alert('You need to enter your name first.');
   }
-})
+  } else {
+    alert('Invalid Entry Number');
+  }
+  
+  
+}
+submit.addEventListener('click', onSubmit);
